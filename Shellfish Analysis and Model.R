@@ -191,8 +191,10 @@ rpart.plot(Tree, nn=TRUE, digits = 4)
 # Node 4: Adversities listed are present and salinity < 24.5 is 2.65% of the data with 40.83% having a high score.
 # Node 5: Adversities listed are not presents and salinity < 24.5 is 9.59% of the data, with 62.35% having a low score.
 
-###### Split data into test/train set and test for accuracy #######
+#change adversity to factor
+dataTree$Adversity <- as.factor(dataTree$Adversity)
 
+###### Split data into test/train set and test for accuracy #######
 set.seed(1123)
 train <- sample(1:nrow(dataTree),size = ceiling(0.80*nrow(dataTree)),replace = FALSE)
 
